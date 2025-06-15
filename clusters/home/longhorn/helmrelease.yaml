@@ -15,17 +15,17 @@ spec:
         kind: HelmRepository
         name: longhorn-repo
         namespace: longhorn-system
-  values: 
+  values:
     ingress:
       enabled: true
       host: longhorn.homelab
       ingressClassName: nginx
       annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-prod
+        cert-manager.io/cluster-issuer: homelab-ca-issuer
         nginx.ingress.kubernetes.io/ssl-redirect: "true"
       path: /
       tls:
         - hosts:
-          - longhorn.homelab
-          secretName: longhorn-tls
+            - longhorn.homelab
+          secretName: wildcard-homelab-tls
       pathType: Prefix
