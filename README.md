@@ -1,2 +1,69 @@
-# homelab
-Homelab Kubernetes cluster managed by Flux
+# Kubernetes Cluster Configuration
+
+This repository contains the infrastructure and application 
+manifests used to manage the Kubernetes cluster configuration. The cluster 
+is managed using [Flux](https://fluxcd.io/) for GitOps continuous deployment, 
+and the repository is integrated with [Renovate](https://renovatebot.com/) to 
+automate dependency and version updates via Pull Requests (PRs).
+
+![Renovate Merge Confidence](https://badges.mend.io/renovate/merge-confidence)
+
+---
+
+## Cluster Diagrams
+
+
+
+---
+
+## Overview
+
+- **Cluster Management:** All Kubernetes manifests, Helm charts, and configuration files 
+are declaratively stored here.
+- **GitOps with Flux:** Flux continuously reconciles the cluster state with 
+this Git repository, ensuring the live cluster matches the desired configuration.
+- **Automated Updates with Renovate:** Renovate bot scans dependency files 
+(e.g., Helm chart versions, container image tags) and opens PRs to 
+update to newer versions automatically, keeping the cluster secure 
+and up-to-date with barely any manual effort.
+
+---
+
+## Getting Started
+
+1. **Bootstrap Flux:**  
+   If you are setting up Flux for the first time, follow the official [Flux bootstrap guide](https://fluxcd.io/docs/installation/) to connect Flux to this repo and your cluster.
+
+2. **Managing Applications:**  
+   Add or update your Kubernetes manifests or HelmRelease resources under the `apps/` or `infrastructure/` directories.
+
+3. **Automatic Updates:**  
+   Renovate will regularly scan for new versions of container images and Helm charts and create PRs with proposed version bumps.
+
+4. **Review and Merge PRs:**  
+   Review Renovate PRs and merge them to keep your cluster dependencies current and secure.
+
+---
+
+## Renovate Bot Configuration
+
+Renovate is configured via the `renovate.json` file in this repository. Key points:
+
+- Auto-detection of Helm charts and container image tags.
+- Scheduled update windows to control PR creation timing.
+- Version constraints to avoid breaking changes automatically.
+- Automatic PR labeling and grouping for better management.
+
+Refer to the official [Renovate documentation](https://docs.renovatebot.com/configuration-options/) for advanced customization.
+
+---
+
+## Resources
+
+- [Flux CD GitOps Documentation](https://fluxcd.io/docs/)
+- [Renovate Bot Documentation](https://docs.renovatebot.com/)
+- [Kubernetes Official Docs](https://kubernetes.io/docs/)
+
+---
+
+
