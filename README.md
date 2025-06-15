@@ -6,13 +6,16 @@ is managed using [Flux](https://fluxcd.io/) for GitOps continuous deployment,
 and the repository is integrated with [Renovate](https://renovatebot.com/) to 
 automate dependency and version updates via Pull Requests (PRs).
 
-![Renovate Merge Confidence](https://badges.mend.io/renovate/merge-confidence)
-
 ---
 
 ## Cluster Diagrams
 
+A Diagram showing how the GitOps workflow with flux happens:
+![Flux Diagram](https://github.com/EthanGilles/EthanGilles/raw/761d05588b9b2809357a47e744ced8ac474b47bb/homelab-diagrams/flux.jpg)
 
+
+The workflow associated with Renovate and keeping Helm Charts up-to-date.
+![Renovate Workflow](https://github.com/EthanGilles/EthanGilles/blob/761d05588b9b2809357a47e744ced8ac474b47bb/homelab-diagrams/renovate-workflow.png)
 
 ---
 
