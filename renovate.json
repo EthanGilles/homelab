@@ -8,6 +8,11 @@
     },
     {
       "matchDatasources": ["helm"],
+      "matchPackageNames": ["cert-manager"],
+      "registryUrls": ["https://charts.jetstack.io"]
+    },
+    {
+      "matchDatasources": ["helm"],
       "matchPackageNames": ["ingress-nginx"],
       "registryUrls": ["https://kubernetes.github.io/ingress-nginx"]
     }
