@@ -11,7 +11,7 @@ automate dependency and version updates via Pull Requests (PRs).
 ## Cluster Diagrams
 
 A Diagram showing how the GitOps workflow with flux happens:
-![Flux Diagram](https://github.com/EthanGilles/EthanGilles/raw/761d05588b9b2809357a47e744ced8ac474b47bb/homelab-diagrams/flux.jpg)
+![Flux Diagram](https://github.com/EthanGilles/EthanGilles/blob/d3016679f036e17bf369824cf7c39a4e8a954783/homelab-diagrams/flux.png)
 
 
 The workflow associated with Renovate and keeping Helm Charts up-to-date.
