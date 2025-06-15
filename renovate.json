@@ -1,6 +1,15 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
-  ]
+  "extends": ["config:base"],
+  "packageRules": [
+    {
+      "matchPaths": ["clusters/home/**/helmrelease.yaml"],
+      "managers": ["helm-values"],
+      "enabled": true
+    }
+  ],
+  "helmValues": {
+    "fileMatch": ["helmrelease.yml"],
+    "versioning": "semver"
+  }
 }
+
