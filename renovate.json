@@ -1,31 +1,30 @@
 {
   "extends": ["config:recommended"],
-  "helmRepositories": [
+  "packageRules": [
     {
-      "url": "https://charts.longhorn.io",
-      "name": "longhorn"
-    },
-    {
-      "url": "https://kubernetes.github.io/ingress-nginx",
-      "name": "ingress-nginx"
+      "matchDatasources": ["helm"],
+      "repositories": [
+        {
+          "depName": "longhorn",
+          "registryUrls": ["https://charts.longhorn.io"]
+        },
+        {
+          "depName": "ingress-nginx",
+          "registryUrls": ["https://kubernetes.github.io/ingress-nginx"]
+        }
+      ]
     }
   ],
-  "customManagers": [
+  "regexManagers": [
     {
-      "customType": "regex",
-      "managerFilePatterns": [
-        "/^clusters/home/.*/helmrelease\\.ya?ml$/"
-      ],
+      "fileMatch": ["^clusters/home/.*/helmrelease\\.ya?ml$"],
       "matchStrings": [
         "chart:\\s*\\n\\s*spec:\\s*\\n\\s*chart:\\s*(?<depName>[a-zA-Z0-9-_.]+)\\s*\\n\\s*version:\\s*\"?(?<currentValue>\\d+\\.\\d+\\.\\d+)\"?"
       ],
       "datasourceTemplate": "helm"
     },
     {
-      "customType": "regex",
-      "managerFilePatterns": [
-        "/^clusters/.*/gotk-components\\.ya?ml$/"
-      ],
+      "fileMatch": ["^clusters/.*/gotk-components\\.ya?ml$"],
       "matchStrings": [
         "image:\\s*ghcr\\.io/fluxcd/(?<depName>[a-z-]+):(?<currentValue>[0-9]+\\.[0-9]+\\.[0-9]+)"
       ],
