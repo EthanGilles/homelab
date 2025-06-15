@@ -16,3 +16,5 @@ spec:
   targetNamespace: cert-manager
   values:
     installCRDs: true      
+    startupapicheck:
+      enabled: false
