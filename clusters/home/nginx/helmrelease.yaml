@@ -8,11 +8,11 @@ spec:
   chart:
     spec:
       chart: ingress-nginx
+      version: 4.12.3
       reconcileStrategy: ChartVersion
       sourceRef:
         kind: HelmRepository
         name: nginx-repo
-      version: 4.12.3
   interval: 1m0s
   values: 
     controller:
