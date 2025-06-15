@@ -8,22 +8,17 @@ spec:
   interval: 1m0s
   url: https://charts.longhorn.io
 ---
-apiVersion: image.toolkit.fluxcd.io/v1alpha1
-kind: ImageRepository
-metadata:
-  name: longhorn-repo
-  namespace: longhorn-system
-spec:
-  interval: 1h0m
-  url: https://charts.longhorn.io
----
 apiVersion: image.toolkit.fluxcd.io/v1beta1
-kind: ImageUpdateAutomation
+kind: HelmReleaseUpdate
 metadata:
   name: longhorn-automation
   namespace: flux-system
 spec:
   interval: 1h0m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+    namespace: flux-system
   git:
     checkout:
       ref:
@@ -42,8 +37,3 @@ spec:
           - automation
     secretRef:
       name: flux-system
-  sourceRef:
-    kind: GitRepository
-    name: flux-config
-    namespace: flux-system
-
