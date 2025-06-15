@@ -16,4 +16,11 @@ spec:
         name: longhorn-repo
         namespace: longhorn-system
   values: 
-  # Add in helm values here
+    ingress:
+      enabled: true
+      host: longhorn.homelab
+      annotations:
+        nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+        nginx.ingress.kubernetes.io/ssl-redirect: "false"
+      path: /
+      pathType: Prefix
