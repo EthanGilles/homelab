@@ -1,11 +1,16 @@
 {
-  "extends": ["config:base"],
+  "extends": [
+    "config:recommended"
+  ],
   "packageRules": [
     {
-      "matchPaths": ["clusters/home/**/helmrelease.yaml"],
-      "managers": ["helm-values"],
+      "matchFileNames": [
+        "clusters/home/**/helmrelease.yaml"
+      ],
+      "matchManagers": [
+        "helm-values"
+      ],
       "enabled": true
     }
-  ],
+  ]
 }
-
