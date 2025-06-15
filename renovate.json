@@ -1,5 +1,15 @@
 {
   "extends": ["config:recommended"],
+  "helmRepositories": [
+    {
+      "url": "https://charts.longhorn.io",
+      "name": "longhorn"
+    },
+    {
+      "url": "https://kubernetes.github.io/ingress-nginx",
+      "name": "ingress-nginx"
+    }
+  ],
   "regexManagers": [
     {
       "fileMatch": ["^clusters/home/.*/helmrelease\\.ya?ml$"],
