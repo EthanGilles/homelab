@@ -1,0 +1,24 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: nginx-release
+  namespace: flux-system
+spec:
+  chart:
+    spec:
+      chart: ingress-nginx
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: nginx-repo
+      version: v4.12.3
+  interval: 1m0s
+  values: 
+    controller:
+      metrics:
+        port: 10254
+        portName: metrics
+        serviceMonitor:
+          enabled: true
+          additionalLabels.release: "prometheus"
