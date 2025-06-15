@@ -13,5 +13,6 @@ spec:
         name: cert-manager
         namespace: flux-system
   interval: 1m0s
+  targetNamespace: cert-manager
   values:
     installCRDs: true      
