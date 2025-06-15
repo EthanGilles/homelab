@@ -7,9 +7,5 @@
       "enabled": true
     }
   ],
-  "helmValues": {
-    "fileMatch": ["helmrelease.yml"],
-    "versioning": "semver"
-  }
 }
 
