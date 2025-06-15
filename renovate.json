@@ -1,16 +1,20 @@
 {
-  "extends": [
-    "config:recommended"
-  ],
-  "packageRules": [
+  "extends": ["config:recommended"],
+  "regexManagers": [
     {
-      "matchFileNames": [
-        "clusters/home/**/helmrelease.yaml"
+      "fileMatch": ["^clusters/home/.*/helmrelease\\.ya?ml$"],
+      "matchStrings": [
+        "chart:\\s*\\n\\s*spec:\\s*\\n\\s*chart:\\s*(?<depName>[a-zA-Z0-9-_.]+)\\s*\\n\\s*version:\\s*\"?(?<currentValue>\\d+\\.\\d+\\.\\d+)\"?"
       ],
-      "matchManagers": [
-        "helm-values"
+      "datasourceTemplate": "helm"
+    },
+    {
+      "fileMatch": ["^clusters/.*/gotk-components\\.ya?ml$"],
+      "matchStrings": [
+        "image:\\s*ghcr\\.io/fluxcd/(?<depName>[a-z-]+):(?<currentValue>[0-9]+\\.[0-9]+\\.[0-9]+)"
       ],
-      "enabled": true
+      "datasourceTemplate": "docker"
     }
   ]
 }
+
