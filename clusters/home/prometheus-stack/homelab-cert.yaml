@@ -4,7 +4,7 @@ metadata:
   name: wildcard-homelab
   namespace: monitoring
 spec:
-  secretName: wildcard-homelab-tls
+  secretName: wildcard-homelab
   issuerRef:
     name: homelab-ca-issuer
     kind: ClusterIssuer

@@ -34,7 +34,7 @@ spec:
         tls:
           - hosts:
               - prometheus.homelab
-            secretName: wildcard-homelab-tls
+            secretName: wildcard-homelab
 
     alertmanager:
       alertmanagerSpec:
@@ -55,7 +55,7 @@ spec:
         tls:
           - hosts:
               - alertmanager.homelab
-            secretName: wildcard-homelab-tls
+            secretName: wildcard-homelab
 
     grafana:
       persistence:
@@ -71,4 +71,4 @@ spec:
         tls:
           - hosts:
               - grafana.homelab
-            secretName: wildcard-homelab-tls
+            secretName: wildcard-homelab
