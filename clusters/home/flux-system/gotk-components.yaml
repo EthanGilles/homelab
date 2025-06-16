@@ -5278,7 +5278,6 @@ spec:
     spec:
       containers:
       - args:
-        - --metrics-bind-address=0.0.0.0:9090
         - --events-addr=http://notification-controller.flux-system.svc.cluster.local./
         - --watch-all-namespaces=true
         - --log-level=info
@@ -7184,7 +7183,6 @@ spec:
     spec:
       containers:
       - args:
-        - --metrics-bind-address=0.0.0.0:9090
         - --events-addr=http://notification-controller.flux-system.svc.cluster.local./
         - --watch-all-namespaces=true
         - --log-level=info
@@ -10987,7 +10985,6 @@ spec:
     spec:
       containers:
       - args:
-        - --metrics-bind-address=0.0.0.0:9090
         - --events-addr=http://notification-controller.flux-system.svc.cluster.local./
         - --watch-all-namespaces=true
         - --log-level=info
@@ -12962,7 +12959,6 @@ spec:
     spec:
       containers:
       - args:
-        - --metrics-bind-address=0.0.0.0:9090
         - --watch-all-namespaces=true
         - --log-level=info
         - --log-encoding=json
@@ -14076,7 +14072,6 @@ spec:
     spec:
       containers:
       - args:
-        - --metrics-bind-address=0.0.0.0:9090
         - --events-addr=http://notification-controller.flux-system.svc.cluster.local./
         - --watch-all-namespaces=true
         - --log-level=info
@@ -14912,7 +14907,6 @@ spec:
     spec:
       containers:
       - args:
-        - --metrics-bind-address=0.0.0.0:9090
         - --events-addr=http://notification-controller.flux-system.svc.cluster.local./
         - --watch-all-namespaces=true
         - --log-level=info

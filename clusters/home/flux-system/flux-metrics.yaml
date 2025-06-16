@@ -1,7 +1,8 @@
+---
 apiVersion: v1
 kind: Service
 metadata:
-  name: flux-source-controller-metrics
+  name: source-controller
   namespace: flux-system
   labels:
     app.kubernetes.io/name: source-controller
@@ -9,14 +10,14 @@ spec:
   selector:
     app.kubernetes.io/name: source-controller
   ports:
-    - port: 9090
-      targetPort: 9090
-      name: metrics
+    - name: http
+      port: 80
+      targetPort: 8080
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: flux-kustomize-controller-metrics
+  name: kustomize-controller
   namespace: flux-system
   labels:
     app.kubernetes.io/name: kustomize-controller
@@ -24,14 +25,14 @@ spec:
   selector:
     app.kubernetes.io/name: kustomize-controller
   ports:
-    - port: 9090
-      targetPort: 9090
-      name: metrics
+    - name: http
+      port: 80
+      targetPort: 8080
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: flux-helm-controller-metrics
+  name: helm-controller
   namespace: flux-system
   labels:
     app.kubernetes.io/name: helm-controller
@@ -39,14 +40,14 @@ spec:
   selector:
     app.kubernetes.io/name: helm-controller
   ports:
-    - port: 9090
-      targetPort: 9090
-      name: metrics
+    - name: http
+      port: 80
+      targetPort: 8080
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: flux-notification-controller-metrics
+  name: notification-controller
   namespace: flux-system
   labels:
     app.kubernetes.io/name: notification-controller
@@ -54,14 +55,14 @@ spec:
   selector:
     app.kubernetes.io/name: notification-controller
   ports:
-    - port: 9090
-      targetPort: 9090
-      name: metrics
+    - name: http
+      port: 80
+      targetPort: 8080
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: flux-image-reflector-controller-metrics
+  name: image-reflector-controller
   namespace: flux-system
   labels:
     app.kubernetes.io/name: image-reflector-controller
@@ -69,14 +70,14 @@ spec:
   selector:
     app.kubernetes.io/name: image-reflector-controller
   ports:
-    - port: 9090
-      targetPort: 9090
-      name: metrics
+    - name: http
+      port: 80
+      targetPort: 8080
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: flux-image-automation-controller-metrics
+  name: image-automation-controller
   namespace: flux-system
   labels:
     app.kubernetes.io/name: image-automation-controller
@@ -84,9 +85,10 @@ spec:
   selector:
     app.kubernetes.io/name: image-automation-controller
   ports:
-    - port: 9090
-      targetPort: 9090
-      name: metrics
+    - name: http
+      port: 80
+      targetPort: 8080
+
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
