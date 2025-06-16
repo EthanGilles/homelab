@@ -1,0 +1,217 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flux-source-controller-metrics
+  namespace: flux-system
+  labels:
+    app.kubernetes.io/name: source-controller
+spec:
+  selector:
+    control-plane: controller-manager
+    name: source-controller
+  ports:
+    - port: 9090
+      targetPort: 9090
+      protocol: TCP
+      name: metrics
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flux-kustomize-controller-metrics
+  namespace: flux-system
+  labels:
+    app.kubernetes.io/name: kustomize-controller
+spec:
+  selector:
+    control-plane: controller-manager
+    name: kustomize-controller
+  ports:
+    - port: 9090
+      targetPort: 9090
+      protocol: TCP
+      name: metrics
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flux-helm-controller-metrics
+  namespace: flux-system
+  labels:
+    app.kubernetes.io/name: helm-controller
+spec:
+  selector:
+    control-plane: controller-manager
+    name: helm-controller
+  ports:
+    - port: 9090
+      targetPort: 9090
+      protocol: TCP
+      name: metrics
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flux-notification-controller-metrics
+  namespace: flux-system
+  labels:
+    app.kubernetes.io/name: notification-controller
+spec:
+  selector:
+    control-plane: controller-manager
+    name: notification-controller
+  ports:
+    - port: 9090
+      targetPort: 9090
+      protocol: TCP
+      name: metrics
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flux-image-reflector-controller-metrics
+  namespace: flux-system
+  labels:
+    app.kubernetes.io/name: image-reflector-controller
+spec:
+  selector:
+    control-plane: controller-manager
+    name: image-reflector-controller
+  ports:
+    - port: 9090
+      targetPort: 9090
+      protocol: TCP
+      name: metrics
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flux-image-automation-controller-metrics
+  namespace: flux-system
+  labels:
+    app.kubernetes.io/name: image-automation-controller
+spec:
+  selector:
+    control-plane: controller-manager
+    name: image-automation-controller
+  ports:
+    - port: 9090
+      targetPort: 9090
+      protocol: TCP
+      name: metrics
+---
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: flux-source-controller
+  namespace: monitoring
+  labels:
+    release: kube-prometheus-stack
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: source-controller
+  namespaceSelector:
+    matchNames:
+      - flux-system
+  endpoints:
+    - port: metrics
+      path: /metrics
+      interval: 30s
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: flux-kustomize-controller
+  namespace: monitoring
+  labels:
+    release: kube-prometheus-stack
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: kustomize-controller
+  namespaceSelector:
+    matchNames:
+      - flux-system
+  endpoints:
+    - port: metrics
+      path: /metrics
+      interval: 30s
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: flux-helm-controller
+  namespace: monitoring
+  labels:
+    release: kube-prometheus-stack
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: helm-controller
+  namespaceSelector:
+    matchNames:
+      - flux-system
+  endpoints:
+    - port: metrics
+      path: /metrics
+      interval: 30s
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: flux-notification-controller
+  namespace: monitoring
+  labels:
+    release: kube-prometheus-stack
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: notification-controller
+  namespaceSelector:
+    matchNames:
+      - flux-system
+  endpoints:
+    - port: metrics
+      path: /metrics
+      interval: 30s
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: flux-image-reflector-controller
+  namespace: monitoring
+  labels:
+    release: kube-prometheus-stack
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: image-reflector-controller
+  namespaceSelector:
+    matchNames:
+      - flux-system
+  endpoints:
+    - port: metrics
+      path: /metrics
+      interval: 30s
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: flux-image-automation-controller
+  namespace: monitoring
+  labels:
+    release: kube-prometheus-stack
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: image-automation-controller
+  namespaceSelector:
+    matchNames:
+      - flux-system
+  endpoints:
+    - port: metrics
+      path: /metrics
+      interval: 30s
