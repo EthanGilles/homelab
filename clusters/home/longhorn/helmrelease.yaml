@@ -31,10 +31,12 @@ spec:
       pathType: Prefix
 
     metrics:
-      enabled: true
-    serviceMonitor:
-      enabled: true
-      namespace: longhorn-system
-      interval: 30s
-      labels:
-        release: kube-prometheus-stack
+      serviceMonitor:
+        enabled: true
+        additionalLabels:
+          release: kube-prometheus-stack
+        annotations: {}
+        interval: "30s"
+        scrapeTimeout: ""
+        relabelings: []
+        metricRelabelings: []
