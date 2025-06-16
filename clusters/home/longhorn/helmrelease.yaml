@@ -29,3 +29,12 @@ spec:
             - longhorn.homelab
           secretName: wildcard-homelab-tls
       pathType: Prefix
+
+    metrics:
+      enabled: true
+    serviceMonitor:
+      enabled: true
+      namespace: longhorn-system
+      interval: 30s
+      labels:
+        release: kube-prometheus-stack
