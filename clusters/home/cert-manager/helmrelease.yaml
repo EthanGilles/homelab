@@ -18,3 +18,10 @@ spec:
     installCRDs: true      
     startupapicheck:
       enabled: false
+    prometheus:
+      enabled: true
+      servicemonitor:
+        enabled: true
+        interval: 30s
+        labels:
+          release: prometheus  # Match this to your kube-prometheus-stack's release label
