@@ -5,5 +5,5 @@ metadata:
   name: nginx-repo
   namespace: nginx
 spec:
-  interval: 1m0s
+  interval: 1h
   url: https://kubernetes.github.io/ingress-nginx
