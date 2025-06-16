@@ -8,6 +8,11 @@
     },
     {
       "matchDatasources": ["helm"],
+      "matchPackageNames": ["kube-prometheus-stack"],
+      "registryUrls": ["https://prometheus-community.github.io/helm-charts"]
+    },
+    {
+      "matchDatasources": ["helm"],
       "matchPackageNames": ["cert-manager"],
       "registryUrls": ["https://charts.jetstack.io"]
     },
