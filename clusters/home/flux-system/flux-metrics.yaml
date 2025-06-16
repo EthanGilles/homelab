@@ -1,4 +1,3 @@
----
 apiVersion: v1
 kind: Service
 metadata:
@@ -8,12 +7,10 @@ metadata:
     app.kubernetes.io/name: source-controller
 spec:
   selector:
-    control-plane: controller-manager
-    name: source-controller
+    app.kubernetes.io/name: source-controller
   ports:
     - port: 9090
       targetPort: 9090
-      protocol: TCP
       name: metrics
 ---
 apiVersion: v1
@@ -25,12 +22,10 @@ metadata:
     app.kubernetes.io/name: kustomize-controller
 spec:
   selector:
-    control-plane: controller-manager
-    name: kustomize-controller
+    app.kubernetes.io/name: kustomize-controller
   ports:
     - port: 9090
       targetPort: 9090
-      protocol: TCP
       name: metrics
 ---
 apiVersion: v1
@@ -42,12 +37,10 @@ metadata:
     app.kubernetes.io/name: helm-controller
 spec:
   selector:
-    control-plane: controller-manager
-    name: helm-controller
+    app.kubernetes.io/name: helm-controller
   ports:
     - port: 9090
       targetPort: 9090
-      protocol: TCP
       name: metrics
 ---
 apiVersion: v1
@@ -59,12 +52,10 @@ metadata:
     app.kubernetes.io/name: notification-controller
 spec:
   selector:
-    control-plane: controller-manager
-    name: notification-controller
+    app.kubernetes.io/name: notification-controller
   ports:
     - port: 9090
       targetPort: 9090
-      protocol: TCP
       name: metrics
 ---
 apiVersion: v1
@@ -76,12 +67,10 @@ metadata:
     app.kubernetes.io/name: image-reflector-controller
 spec:
   selector:
-    control-plane: controller-manager
-    name: image-reflector-controller
+    app.kubernetes.io/name: image-reflector-controller
   ports:
     - port: 9090
       targetPort: 9090
-      protocol: TCP
       name: metrics
 ---
 apiVersion: v1
@@ -93,14 +82,11 @@ metadata:
     app.kubernetes.io/name: image-automation-controller
 spec:
   selector:
-    control-plane: controller-manager
-    name: image-automation-controller
+    app.kubernetes.io/name: image-automation-controller
   ports:
     - port: 9090
       targetPort: 9090
-      protocol: TCP
       name: metrics
----
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
