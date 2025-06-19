@@ -13058,6 +13058,8 @@ spec:
   sourceRef:
     kind: OCIRepository
     name: capacitor
+  patchesStrategicMerge:
+    -capacitor-patch.yaml
 ---
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
