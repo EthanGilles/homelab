@@ -1,5 +1,11 @@
 {
-  "extends": ["config:recommended"],
+  "extends": [
+    "config:recommended",
+    ":semanticCommits",
+    ":semanticCommitTypeAll(chore)",
+    ":semanticCommitScopeDisabled"
+  ],
+  "commitMessage": "{{{commitMessagePrefix}}}[update] {{{commitMessageAction}}} {{{commitMessageTopic}}} {{{commitMessageExtra}}}{{{commitMessageSuffix}}}",
   "packageRules": [
     {
       "matchDatasources": ["helm"],
