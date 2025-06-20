@@ -5,7 +5,7 @@
     ":semanticCommitTypeAll(chore)",
     ":semanticCommitScopeDisabled"
   ],
-  "commitMessage": "{{{commitMessagePrefix}}}[update] {{{commitMessageAction}}} {{{commitMessageTopic}}} {{{commitMessageExtra}}}{{{commitMessageSuffix}}}",
+  "commitMessage": "{{{commitMessagePrefix}}}[update] {{{commitMessageTopic}}} {{{commitMessageExtra}}}{{{commitMessageSuffix}}}",
   "packageRules": [
     {
       "matchDatasources": ["helm"],
