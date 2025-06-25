@@ -18,18 +18,6 @@ spec:
   values:
     hajimari:
       name: "Ethan"
-
     ingress:
       main:
-        enabled: true
-        host: dashboard.homelab
-        ingressClassName: nginx
-        annotations:
-          cert-manager.io/cluster-issuer: homelab-ca-issuer
-          nginx.ingress.kubernetes.io/ssl-redirect: "true"
-        path: /
-        tls:
-          - hosts:
-              - dashboard.homelab
-            secretName: wildcard-homelab-tls
-        pathType: Prefix
+        enabled: false
