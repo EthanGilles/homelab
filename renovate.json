@@ -7,9 +7,6 @@
   ],
   "commitMessagePrefix": "{{{commitMessagePrefix}}}",
   "commitMessageAction": "[update]",
-  "commitMessageSubject": "{{{commitMessageTopic}}}",
-  "commitMessageExtra": "{{{commitMessageExtra}}}",
-  "commitMessageSuffix": "{{{commitMessageSuffix}}}",
   "packageRules": [
     {
       "matchDatasources": ["helm"],
