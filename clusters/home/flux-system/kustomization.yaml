@@ -4,3 +4,11 @@ resources:
 - gotk-components.yaml
 - gotk-sync.yaml
 - monitoring.yaml
+configMapGenerator:
+  - name: flux-kube-state-metrics-config
+    files:
+      - ../monitoring/kube-state-metrics-config.yaml
+    options:
+      labels:
+        app.kubernetes.io/part-of: flux
+        app.kubernetes.io/component: monitoring
