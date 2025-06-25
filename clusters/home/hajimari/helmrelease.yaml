@@ -18,6 +18,36 @@ spec:
   values:
     hajimari:
       name: "Ethan"
+      namespaceSelector:
+        matchNames:
+          - flux-system
+          - longhorn-system
+          - monitoring
+      title: Homelab Dashboard
+      showGreeting: true
+      showAppGroups: false
+      showAppUrls: true
+      showAppInfo: false
+      showAppStatus: true
+      defaultAppIcon: mdi:application
+      showBookmarkGroups: true
+      showGlobalBookmarks: true
+      alwaysTargetBlank: false
+      globalBookmarks:
+        - group: Media
+          bookmarks:
+            - name: Spotify
+              url: 'http://browse.spotify.com'
+            - name: YouTube
+              url: 'https://youtube.com/feed/subscriptions'
+
     ingress:
       main:
         enabled: false
+
+    persistence:
+      data:
+        enabled: true
+        storageClassName: longhorn
+        accessMode: ReadWriteOnce
+        size: 1Gi
