@@ -7,6 +7,7 @@
   ],
   "commitMessagePrefix": "[update]",
   "commitMessageAction": " chore: ",
+  "reviewers": ["EthanGilles"],
   "packageRules": [
     {
       "matchDatasources": ["helm"],
