@@ -1,0 +1,35 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: hajimari-release
+  namespace: hajimari
+spec:
+  interval: 1h
+  chart:
+    spec:
+      chart: hajimari
+      version: 2.0.0
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: hajimari-repo
+        namespace: hajimari
+  values:
+    hajimari:
+      name: "Ethan"
+
+      ingress:
+        main:
+          enabled: true
+          host: deashboard.homelab
+          ingressClassName: nginx
+          annotations:
+            cert-manager.io/cluster-issuer: homelab-ca-issuer
+            nginx.ingress.kubernetes.io/ssl-redirect: "true"
+          path: /
+          tls:
+            - hosts:
+                - dashboard.homelab
+              secretName: wildcard-homelab-tls
+          pathType: Prefix
