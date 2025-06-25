@@ -7,7 +7,7 @@ resources:
 configMapGenerator:
   - name: flux-kube-state-metrics-config
     files:
-      - ../monitoring/kube-state-metrics-config.yaml
+      - ../prometheus-stack/kube-state-metrics-config.yaml
     options:
       labels:
         app.kubernetes.io/part-of: flux
