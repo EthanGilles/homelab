@@ -25,7 +25,7 @@ spec:
           volumeClaimTemplate:
             spec:
               storageClassName: longhorn
-              accessModes: ["ReadWriteOnce"]
+              accessModes: ["ReadWriteMany"]
               resources:
                 requests:
                   storage: 15Gi
@@ -47,7 +47,7 @@ spec:
           volumeClaimTemplate:
             spec:
               storageClassName: longhorn
-              accessModes: ["ReadWriteOnce"]
+              accessModes: ["ReadWriteMany"]
               resources:
                 requests:
                   storage: 2Gi
@@ -66,6 +66,7 @@ spec:
     grafana:
       persistence:
         enabled: true
+        accessModes: ["ReadWriteMany"]
         storageClassName: longhorn
         size: 5Gi
       ingress:
