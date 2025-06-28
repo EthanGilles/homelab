@@ -23,6 +23,12 @@ spec:
       annotations:
         cert-manager.io/cluster-issuer: homelab-ca-issuer
         nginx.ingress.kubernetes.io/ssl-redirect: "true"
+        hajimari.io/enable: "true"
+        hajimari.io/appName: "Longhorn"
+        hajimari.io/icon: "mdi:network-attached-storage"
+        hajimari.io/url: "https://longhorn.homelab/"
+        hajimari.io/targetBlank: true
+        hajimari.io/info: "Dashboard for Longhorn"
       path: /
       tls:
         - hosts:

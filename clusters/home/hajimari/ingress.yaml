@@ -16,9 +16,9 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: hajimari-release   # adjust this to match your service name
+                name: hajimari-release
                 port:
-                  number: 3000        # default port from chart `service.main.ports.http`
+                  number: 3000
   tls:
     - hosts:
         - dashboard.homelab

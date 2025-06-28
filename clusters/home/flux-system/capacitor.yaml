@@ -54,9 +54,11 @@ metadata:
     cert-manager.io/cluster-issuer: homelab-ca-issuer
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     hajimari.io/enable: "true"
-    hajimari.io/name: "Capacitor"
+    hajimari.io/appName: "Capacitor"
     hajimari.io/icon: "mdi:react"
     hajimari.io/url: "https://flux.homelab/"
+    hajimari.io/targetBlank: true
+    hajimari.io/info: "Dashboard for Flux"
 spec:
   ingressClassName: nginx
   tls:
