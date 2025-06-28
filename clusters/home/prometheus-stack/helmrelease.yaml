@@ -38,7 +38,7 @@ spec:
           hajimari.io/appName: "Prometheus"
           hajimari.io/icon: "simple-icons:prometheus"
           hajimari.io/url: "https://prometheus.homelab/"
-          hajimari.io/targetBlank: true
+          hajimari.io/targetBlank: "true"
           hajimari.io/info: "Prometheus Web UI"
         hosts:
           - prometheus.homelab
@@ -66,7 +66,7 @@ spec:
           hajimari.io/appName: "Alert Manager"
           hajimari.io/icon: "mdi:bell-alert"
           hajimari.io/url: "https://alertmanager.homelab/"
-          hajimari.io/targetBlank: true
+          hajimari.io/targetBlank: "true"
           hajimari.io/info: "Prometheus Alert Manager"
         hosts:
           - alertmanager.homelab
@@ -90,7 +90,7 @@ spec:
           hajimari.io/appName: "Grafana"
           hajimari.io/icon: "simple-icons:grafana"
           hajimari.io/url: "https://grafana.homelab/"
-          hajimari.io/targetBlank: true
+          hajimari.io/targetBlank: "true"
           hajimari.io/info: "Metric Visualization Dashboards"
         hosts:
           - grafana.homelab

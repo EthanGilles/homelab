@@ -57,7 +57,7 @@ metadata:
     hajimari.io/appName: "Capacitor"
     hajimari.io/icon: "mdi:react"
     hajimari.io/url: "https://flux.homelab/"
-    hajimari.io/targetBlank: true
+    hajimari.io/targetBlank: "true"
     hajimari.io/info: "Dashboard for Flux"
 spec:
   ingressClassName: nginx

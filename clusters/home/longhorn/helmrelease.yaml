@@ -27,7 +27,7 @@ spec:
         hajimari.io/appName: "Longhorn"
         hajimari.io/icon: "mdi:network-attached-storage"
         hajimari.io/url: "https://longhorn.homelab/"
-        hajimari.io/targetBlank: true
+        hajimari.io/targetBlank: "true"
         hajimari.io/info: "Dashboard for Longhorn"
       path: /
       tls:
