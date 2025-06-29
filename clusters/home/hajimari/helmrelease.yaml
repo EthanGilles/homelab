@@ -50,7 +50,4 @@ spec:
 
     persistence:
       data:
-        enabled: true
-        storageClassName: longhorn
-        accessMode: ReadWriteOnce
-        size: 1Gi
+        enabled: false
