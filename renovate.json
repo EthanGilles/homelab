@@ -30,6 +30,11 @@
     },
     {
       "matchDatasources": ["helm"],
+      "matchPackageNames": ["promtail", "loki"],
+      "registryUrls": ["https://grafana.github.io/helm-charts"]
+    },
+    {
+      "matchDatasources": ["helm"],
       "matchPackageNames": ["ingress-nginx"],
       "registryUrls": ["https://kubernetes.github.io/ingress-nginx"]
     }
