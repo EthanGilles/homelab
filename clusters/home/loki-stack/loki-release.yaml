@@ -54,7 +54,7 @@ spec:
           app.kubernetes.io/part-of: kube-prometheus-stack
           release: kube-prometheus-stack
       selfMonitoring:
-        enabled: true
+        enabled: false
     loki:
       auth_enabled: false
       limits_config:
