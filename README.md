@@ -55,7 +55,7 @@ and up-to-date with barely any manual effort.
    If you are setting up Flux for the first time, follow the official [Flux bootstrap guide](https://fluxcd.io/docs/installation/) to connect Flux to this repo and your cluster.
 
 2. **Managing Applications:**  
-   Add or update your Kubernetes manifests or HelmRelease resources under the `apps/` or `infrastructure/` directories.
+   Add or update your Kubernetes manifests or HelmRelease resources under the `/clusters/home/` directory.
 
 3. **Automatic Updates:**  
    Renovate will regularly scan for new versions of container images and Helm charts and create PRs with proposed version bumps.
