@@ -31,6 +31,23 @@ update to newer versions automatically, keeping the cluster secure
 and up-to-date with barely any manual effort.
 
 ---
+## Current Appications
+
+### Core System: 
+- [Flux2](https://github.com/fluxcd/flux2)
+- [Cert-Manager](https://github.com/cert-manager/cert-manager)
+- [Longhorn](https://github.com/longhorn/longhorn)
+- [Ingress-Nginx](Nginx-Ingress)
+
+### Monitoring:
+- [Kube Prometheus Stack](https://github.com/prometheus-community/helm-charts)
+- [Loki](https://github.com/grafana/loki)
+- [Promtail](https://github.com/grafana/helm-charts)
+
+### Other:
+- [Hajimari (Dashboard)](https://github.com/toboshii/hajimari)
+
+---
 
 ## Getting Started
 
