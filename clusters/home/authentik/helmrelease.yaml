@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: authentik
-      version: 2023.10.6
+      version: 2023.10.7
       sourceRef:
         kind: HelmRepository
         name: authentik-repo
@@ -17,12 +17,22 @@ spec:
     authentik:
       error_reporting:
         enabled: false
-    env:
-      - name: AUTHENTIK_SECRET_KEY
-        valueFrom:
-          secretKeyRef:
-            name: authentik-secret
-            key: secret_key
+    server:
+      serviceAccountName: authentik-release
+      env:
+        - name: AUTHENTIK_SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: authentik-secret
+              key: secret_key
+    worker:
+      serviceAccountName: authentik-release
+      env:
+        - name: AUTHENTIK_SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: authentik-secret
+              key: secret_key
     postgresql:
       enabled: true
       storageClass: longhorn
