@@ -21,16 +21,6 @@ spec:
     authentik:
       error_reporting:
         enabled: false
-    postgresql:
-      enabled: true
-      storageClass: longhorn
-      resources:
-        requests:
-          cpu: 100m
-          memory: 256Mi
-        limits:
-          cpu: 500m
-          memory: 512Mi
     redis:
       enabled: true
       storageClass: longhorn
@@ -41,28 +31,29 @@ spec:
         limits:
           cpu: 200m
           memory: 256Mi
-    ingress:
-      enabled: true
-      ingressClassName: nginx
-      hosts:
-        - host: authentik.homelab
-          paths:
-            - path: /
-              pathType: Prefix
-      tls:
-        - hosts:
-            - authentik.homelab
-          secretName: authentik-tls
-      annotations:
-        cert-manager.io/cluster-issuer: homelab-ca-issuer
-        nginx.ingress.kubernetes.io/ssl-redirect: "true"
-        nginx.ingress.kubernetes.io/rewrite-target: /
-        hajimari.io/enable: "true"
-        hajimari.io/appName: "Authentik"
-        hajimari.io/icon: "mdi:account-key"
-        hajimari.io/url: "https://authentik.homelab/"
-        hajimari.io/targetBlank: "true"
-        hajimari.io/info: "Authentik Admin Page"
+    server: 
+      ingress:
+        enabled: true
+        ingressClassName: nginx
+        hosts:
+          - host: authentik.homelab
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - authentik.homelab
+            secretName: authentik-tls
+        annotations:
+          cert-manager.io/cluster-issuer: homelab-ca-issuer
+          nginx.ingress.kubernetes.io/ssl-redirect: "true"
+          nginx.ingress.kubernetes.io/rewrite-target: /
+          hajimari.io/enable: "true"
+          hajimari.io/appName: "Authentik"
+          hajimari.io/icon: "mdi:account-key"
+          hajimari.io/url: "https://authentik.homelab/"
+          hajimari.io/targetBlank: "true"
+          hajimari.io/info: "Authentik Admin Page"
     prometheus:
       serviceMonitor:
         enabled: true
