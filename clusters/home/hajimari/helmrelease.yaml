@@ -24,6 +24,7 @@ spec:
           - flux-system
           - longhorn-system
           - monitoring
+          - authentik
       title: Homelab Dashboard
       showGreeting: true
       showAppGroups: false
