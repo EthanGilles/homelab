@@ -12,7 +12,7 @@ spec:
     - host: authentik.homelab
       http:
         paths:
-          - path: /outpost.goauthentik.io
+          - path: /outpost
             pathType: Prefix
             backend:
               service:
