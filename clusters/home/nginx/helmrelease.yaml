@@ -21,10 +21,7 @@ spec:
         annotations:
           nginx.ingress.kubernetes.io/enable-external-auth: "true"
       allowSnippetAnnotations: true
-      enableAnnotationValidations: true
-      config:
-        strict-validate-path-type: "false"
-        enable-underscores-in-headers: "true"    
+      enableAnnotationValidations: false
       metrics:
         enabled: true
         service:
