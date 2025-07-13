@@ -23,7 +23,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: authentik-release
+                name: authentik-release-server
                 port:
                   number: 80
   tls:
