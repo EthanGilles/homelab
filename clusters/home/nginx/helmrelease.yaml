@@ -23,6 +23,8 @@ spec:
       allowSnippetAnnotations: true
       config:
         strict-validate-path-type: "false"
+        enable-underscores-in-headers: "true"    
+        enable-annotation-validation: "false"
       metrics:
         enabled: true
         service:
