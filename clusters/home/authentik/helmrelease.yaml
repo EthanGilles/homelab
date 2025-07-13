@@ -13,31 +13,14 @@ spec:
         kind: HelmRepository
         name: authentik-repo
         namespace: authentik
+  valuesFrom:
+    - kind: Secret
+      name: authentik-secret-key
+      valuesKey: values.yaml
   values:
-    global:
-      env:
-        - name: AUTHENTIK_SECRET_KEY
-          valueFrom:
-            secretKeyRef:
-              name: authentik-secret
-              key: AUTHENTIK_SECRET_KEY
     authentik:
       error_reporting:
         enabled: false
-    server:
-      env:
-        - name: AUTHENTIK_SECRET_KEY
-          valueFrom:
-            secretKeyRef:
-              name: authentik-secret
-              key: AUTHENTIK_SECRET_KEY
-    worker:
-      env:
-        - name: AUTHENTIK_SECRET_KEY
-          valueFrom:
-            secretKeyRef:
-              name: authentik-secret
-              key: AUTHENTIK_SECRET_KEY
     postgresql:
       enabled: true
       storageClass: longhorn
