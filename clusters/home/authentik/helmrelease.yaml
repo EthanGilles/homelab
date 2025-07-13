@@ -3,8 +3,6 @@ kind: HelmRelease
 metadata:
   name: authentik-release
   namespace: authentik
-  labels:
-    app: authentik
 spec:
   interval: 1h 
   chart:
@@ -42,8 +40,6 @@ spec:
           namespace: authentik
           interval: "30s"
           scrapeTimeout: "10s"  # adjust as needed
-          labels:
-            release: kube-prometheus-stack
           selector:
             matchLabels:
               release: kube-prometheus-stack
