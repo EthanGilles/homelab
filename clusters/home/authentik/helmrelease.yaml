@@ -18,9 +18,6 @@ spec:
       name: authentik-secret-key
       valuesKey: values.yaml
   values:
-    authentik:
-      error_reporting:
-        enabled: false
     redis:
       enabled: true
       storageClass: longhorn
