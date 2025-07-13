@@ -18,12 +18,10 @@ spec:
       error_reporting:
         enabled: false
     server:
-      serviceAccountName: authentik-release
       envFrom:
         - secretRef: 
           name: authentik-secret
     worker:
-      serviceAccountName: authentik-release
       envFrom:
         - secretRef: 
           name: authentik-secret
