@@ -16,6 +16,10 @@ spec:
   interval: 1h
   values: 
     controller:
+      admissionWebhooks:
+        enabled: true
+        annotations:
+          nginx.ingress.kubernetes.io/enable-external-auth: "true"
       allowSnippetAnnotations: true
       metrics:
         enabled: true
