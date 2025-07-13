@@ -19,20 +19,14 @@ spec:
         enabled: false
     server:
       serviceAccountName: authentik-release
-      env:
-        - name: AUTHENTIK_SECRET_KEY
-          valueFrom:
-            secretKeyRef:
-              name: authentik-secret
-              key: secret_key
+      envFrom:
+        - secretRef: 
+          name: authentik-secret
     worker:
       serviceAccountName: authentik-release
-      env:
-        - name: AUTHENTIK_SECRET_KEY
-          valueFrom:
-            secretKeyRef:
-              name: authentik-secret
-              key: secret_key
+      envFrom:
+        - secretRef: 
+          name: authentik-secret
     postgresql:
       enabled: true
       storageClass: longhorn
