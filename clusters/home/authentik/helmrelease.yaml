@@ -1,0 +1,72 @@
+kind: HelmRelease
+metadata:
+  name: authentik-release
+  namespace: authentik
+spec:
+  interval: 1h 
+  chart:
+    spec:
+      chart: authentik
+      version: 2023.10.6
+      sourceRef:
+        kind: HelmRepository
+        name: authentik-repo
+        namespace: authentik
+  values:
+    authentik:
+      error_reporting:
+        enabled: false
+    env:
+      - name: AUTHENTIK_SECRET_KEY
+        valueFrom:
+          secretKeyRef:
+            name: authentik-secret
+            key: secret_key
+    postgresql:
+      enabled: true
+      storageClass: longhorn
+      resources:
+        requests:
+          cpu: 100m
+          memory: 256Mi
+        limits:
+          cpu: 500m
+          memory: 512Mi
+    redis:
+      enabled: true
+      storageClass: longhorn
+      resources:
+        requests:
+          cpu: 100m
+          memory: 128Mi
+        limits:
+          cpu: 200m
+          memory: 256Mi
+    ingress:
+      enabled: true
+      ingressClassName: nginx
+      hosts:
+        - host: authentik.homelab
+          paths:
+            - path: /
+              pathType: Prefix
+      tls:
+        - hosts:
+            - authentik.homelab
+          secretName: authentik-tls
+      annotations:
+        cert-manager.io/cluster-issuer: homelab-ca-issuer
+        nginx.ingress.kubernetes.io/ssl-redirect: "true"
+        nginx.ingress.kubernetes.io/rewrite-target: /
+        hajimari.io/enable: "true"
+        hajimari.io/appName: "Authentik"
+        hajimari.io/icon: "mdi:account-key"
+        hajimari.io/url: "https://authentik.homelab/"
+        hajimari.io/targetBlank: "true"
+        hajimari.io/info: "Authentik Admin Page"
+    prometheus:
+      serviceMonitor:
+        enabled: true
+        namespace: monitoring
+        labels:
+          release: kube-prometheus-stack
