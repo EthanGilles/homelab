@@ -14,17 +14,30 @@ spec:
         name: authentik-repo
         namespace: authentik
   values:
+    global:
+      env:
+        - name: AUTHENTIK_SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: authentik-secret
+              key: AUTHENTIK_SECRET_KEY
     authentik:
       error_reporting:
         enabled: false
     server:
-      envFrom:
-        - secretRef: 
-          name: authentik-secret
+      env:
+        - name: AUTHENTIK_SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: authentik-secret
+              key: AUTHENTIK_SECRET_KEY
     worker:
-      envFrom:
-        - secretRef: 
-          name: authentik-secret
+      env:
+        - name: AUTHENTIK_SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: authentik-secret
+              key: AUTHENTIK_SECRET_KEY
     postgresql:
       enabled: true
       storageClass: longhorn
