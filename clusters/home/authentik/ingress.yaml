@@ -10,7 +10,7 @@ metadata:
     hajimari.io/enable: "true"
     hajimari.io/appName: "Authentik"
     hajimari.io/icon: "mdi:account-key"
-    hajimari.io/url: "https://authentik.homelab"
+    hajimari.io/url: "https://authentik.homelab/"
     hajimari.io/targetBlank: "true"
     hajimari.io/info: "Authentik Admin Page"
 spec:
