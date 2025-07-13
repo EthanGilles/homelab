@@ -16,6 +16,7 @@ spec:
   interval: 1h
   values: 
     controller:
+      allowSnippetAnnotations: true
       metrics:
         enabled: true
         service:
