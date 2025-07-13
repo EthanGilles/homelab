@@ -32,11 +32,9 @@ spec:
       ingress:
         enabled: true
         ingressClassName: nginx
-        hosts:
-          - host: authentik.homelab
-            paths:
-              - path: /
-                pathType: Prefix
+        host: authentik.homelab
+        path: /
+        pathType: Prefix
         tls:
           - hosts:
               - authentik.homelab
@@ -51,9 +49,10 @@ spec:
           hajimari.io/url: "https://authentik.homelab/"
           hajimari.io/targetBlank: "true"
           hajimari.io/info: "Authentik Admin Page"
+
     prometheus:
       serviceMonitor:
         enabled: true
-        namespace: monitoring
+        namespace: authentik
         labels:
           release: kube-prometheus-stack
