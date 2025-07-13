@@ -1,0 +1,5 @@
+**/*.env
+**/*.crt
+**/*.pem
+**/*.key
+**/authentik-secret-key.yaml
