@@ -37,9 +37,7 @@ spec:
           type: ClusterIP
         serviceMonitor:
           enabled: true
-          namespace: authentik
           interval: "30s"
-          scrapeTimeout: "10s"  # adjust as needed
-          selector:
-            matchLabels:
-              release: kube-prometheus-stack
+          scrapeTimeout: ""  
+          additionalLabels:
+            release: kube-prometheus-stack
