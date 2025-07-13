@@ -2,8 +2,9 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: authentik-release
-  namespace: authentik-release
-  app: authentik-release
+  namespace: authentik
+  labels:
+    app: authentik
 spec:
   interval: 1h 
   chart:
