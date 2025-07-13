@@ -22,7 +22,6 @@ spec:
           nginx.ingress.kubernetes.io/enable-external-auth: "true"
       allowSnippetAnnotations: true
       config:
-        allow-snippet-annotations: "true"
         strict-validate-path-type: "false"
       metrics:
         enabled: true
