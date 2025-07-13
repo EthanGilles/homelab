@@ -34,8 +34,6 @@ spec:
         service:
           portName: metrics
           servicePort: 9300
-          annotations: {}
-          labels: {}
           type: ClusterIP
         serviceMonitor:
           enabled: true
