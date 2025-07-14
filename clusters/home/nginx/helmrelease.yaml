@@ -16,6 +16,10 @@ spec:
   interval: 1h
   values: 
     controller:
+      config:
+        proxy-buffer-size: "16k"
+        proxy-buffers: "8 16k"
+        proxy-busy-buffers-size: "32k"
       admissionWebhooks:
         enabled: true
         annotations:
