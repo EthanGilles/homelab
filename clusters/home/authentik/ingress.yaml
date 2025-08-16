@@ -1,0 +1,32 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: authentik-release-ingress
+  namespace: authentik
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: homelab-ca-issuer
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    hajimari.io/enable: "true"
+    hajimari.io/appName: "Authentik"
+    hajimari.io/icon: "mdi:account-key"
+    hajimari.io/url: "https://authentik.homelab/"
+    hajimari.io/targetBlank: "true"
+    hajimari.io/info: "Authentik Admin Page"
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: authentik.homelab
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: authentik-release-server
+                port:
+                  number: 80
+  tls:
+    - hosts:
+        - authentik.homelab
+      secretName: authentik-tls

@@ -35,9 +35,12 @@ and up-to-date with barely any manual effort.
 
 ### Core System: 
 - [Flux2](https://github.com/fluxcd/flux2)
-- [Cert-Manager](https://github.com/cert-manager/cert-manager)
 - [Longhorn](https://github.com/longhorn/longhorn)
+
+### Networking:
 - [Ingress-Nginx](Nginx-Ingress)
+- [Cert-Manager](https://github.com/cert-manager/cert-manager)
+- [Authentik]()
 
 ### Monitoring:
 - [Kube Prometheus Stack](https://github.com/prometheus-community/helm-charts)

@@ -16,6 +16,16 @@ spec:
   interval: 1h
   values: 
     controller:
+      config:
+        proxy-buffer-size: 16k
+        proxy-buffers: "8 16k"
+        proxy-busy-buffers-size: 128k
+      admissionWebhooks:
+        enabled: true
+        annotations:
+          nginx.ingress.kubernetes.io/enable-external-auth: "true"
+      allowSnippetAnnotations: true
+      enableAnnotationValidations: false
       metrics:
         enabled: true
         service:
